@@ -8,13 +8,12 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/components/index.js'
-    // app: process.env.NODE_ENV === 'production'
-    //   ? './src/components/index.js'
-    //   : './src/main.js'
+    app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -69,7 +68,11 @@ module.exports = {
     ]
   },
   node: {
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
     setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
     dgram: 'empty',
     fs: 'empty',
     net: 'empty',

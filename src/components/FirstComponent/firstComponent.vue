@@ -8,14 +8,9 @@
 export default {
     data(){
         return{
-            name:'luoliang1'
+            name:'第一个组件'
         }
     }
 }
 </script>
-
-<style scoped>
-
-</style>
-
 
